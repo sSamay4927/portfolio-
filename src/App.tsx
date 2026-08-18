@@ -33,6 +33,8 @@ const LeetCodeIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   </svg>
 );
 
+import LoadingScreen from './components/LoadingScreen';
+
 const SECTION_IDS = ['harbor', 'arsenal', 'voyages', 'logbook', 'dispatch'];
 
 export default function App() {
@@ -45,7 +47,7 @@ export default function App() {
 
   const getFramePath = useCallback((index: number) => {
     const formattedStr = index.toString().padStart(4, '0');
-    return `/assets/extracted_frames_jpg/frame_${formattedStr}.jpg`;
+    return `/assets/frames/frame_${formattedStr}.jpg`;
   }, []);
 
   const { loadedProgress } = useScrollSequence({
@@ -118,11 +120,14 @@ export default function App() {
 
 
       {/* ========================================================================= */}
-      {/* LAYER 2: Fixed HUD Frame (z-50)                                           */}
+      {/* LAYER 2: Loading Screen or Main UI                                        */}
       {/* ========================================================================= */}
-
-      {/* Top Left Brand */}
-      <header className="fixed top-6 left-6 sm:top-8 sm:left-8 z-50 flex flex-row items-center gap-4">
+      {loadedProgress < 1 ? (
+        <LoadingScreen progress={Math.round(loadedProgress * 100)} />
+      ) : (
+        <>
+          {/* Top Left Brand */}
+          <header className="fixed top-6 left-6 sm:top-8 sm:left-8 z-50 flex flex-row items-center gap-4">
         <div
           onClick={() => scrollToSection('harbor')}
           className="cursor-pointer group w-12 h-12 rounded-full border border-[#C5A059] flex items-center justify-center bg-black/60 backdrop-blur-sm shadow-[0_0_15px_rgba(197,160,89,0.25)] hover:shadow-[0_0_25px_rgba(197,160,89,0.5)] hover:scale-105 transition-all duration-300"
@@ -379,6 +384,8 @@ export default function App() {
         isAudioOn={isAudioOn}
         onToggleAudio={toggleAudio}
       />
+        </>
+      )}
     </main>
   );
 }
