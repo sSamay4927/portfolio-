@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif-display: "Cinzel Decorative", "Cinzel", "Cormorant Garamond", Georgia, serif;
+  --font-serif-classic: "Cinzel", Georgia, serif;
+  --font-serif-body: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-gold-300: #F3E5AB;
+  --color-gold-400: #E0BA6D;
+  --color-gold-500: #C5A059;
+  --color-gold-600: #A8833B;
+  --color-gold-700: #846422;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .font-cinzel {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+  .font-cinzel-dec {
+    font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  }
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-sans-main {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-jetbrains {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.25), inset 0 0 15px rgba(197, 160, 89, 0.1);
+  }
+  .gold-glow-lg {
+    box-shadow: 0 0 45px rgba(197, 160, 89, 0.35), inset 0 0 25px rgba(197, 160, 89, 0.15);
+  }
+  .gold-text-glow {
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.5), 0 0 40px rgba(197, 160, 89, 0.2);
+  }
+  .glass-panel {
+    background: rgba(8, 11, 18, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+  }
+  .glass-panel-subtle {
+    background: rgba(6, 9, 14, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+  }
+}
+
+/* Custom scrollbars for modal and inner drawers */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 7, 11, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 160, 89, 0.8);
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+@keyframes floatLantern {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatLantern 6s ease-in-out infinite;
+}
+
+/* Scroll chapter reveal animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Staggered animation delays */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+
+/* Scanline HUD effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.hud-scanline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.15), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Corner notch decorations for HUD panels */
+.hud-notch {
+  position: relative;
+}
+.hud-notch::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid rgba(197, 160, 89, 0.5);
+  border-left: 1px solid rgba(197, 160, 89, 0.5);
+  pointer-events: none;
+}
+.hud-notch::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 12px;
+  height: 12px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.5);
+  border-right: 1px solid rgba(197, 160, 89, 0.5);
+  pointer-events: none;
+}
+
+/* Cubic-bezier easing custom properties */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

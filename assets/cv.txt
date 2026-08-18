@@ -1,0 +1,82 @@
+\documentclass[a4paper,10.9pt]{article}
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[margin=0.4in]{geometry}
+
+%----------Hyperlink Coloring---------
+\usepackage[pdftex,colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0pt}
+
+%----------Section Formatting---------
+\titleformat{\section}{\vspace{-8pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\titlerule\vspace{-2pt}]
+
+\begin{document}
+
+%----------Header---------
+\begin{center}
+    {\Huge \scshape Samay Shankar Dubey} \\ \vspace{2pt}
+    \large
+    \href{mailto:samaydubey232@gmail.com}{samaydubey232@gmail.com} $|$
+    \href{https://github.com/sSamay4927}{GitHub} $|$
+    \href{https://www.linkedin.com/in/samay-dubey-356376352/}{LinkedIn}
+\end{center}
+%----------Education---------
+\section{Education}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item \textbf{Indian Institute of Information Technology, Nagpur} \hfill {2023 -- Present} \\
+      B.Tech in Computer Science \hfill {CGPA: 7.2 / 10} \\
+      \textbf{Kendriya Vidyalaya, Gomti Nagar, Lucknow} \hfill {2020 -- 2023} \\
+      Class XII: 89.8\% $|$ Class X: 96.4\%
+\end{itemize}
+%----------Skills---------
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0.5pt, topsep=1pt]
+    \item \textbf{Languages:} C++, Python, JavaScript (ES6+), TypeScript, SQL
+    \item \textbf{Frontend:} React.js, Next.js, Tailwind CSS, Framer Motion, GSAP, D3.js, Redux Toolkit
+    \item \textbf{Backend:} Node.js, Express.js, REST APIs, JWT, Socket.IO, Python (subprocess)
+    \item \textbf{Databases:} MongoDB (Mongoose), PostgreSQL, MySQL
+    \item \textbf{DevOps \& Tools:} AWS, Vercel, Git, GitHub, Postman, Vite, Linux
+\end{itemize}
+%----------Projects---------
+\section{Projects}
+\begin{itemize}[leftmargin=0.15in, label={}]
+
+  \item \textbf{FIT QUEST -- Gamified Full-Stack Fitness Platform} \hfill \href{https://github.com/sSamay4927/FitQuest}{GitHub} \\
+    \textit{Tech Stack: MongoDB, Express.js, React 18, Node.js, Socket.IO, Stripe, MediaPipe, Cloudinary, Redux Toolkit}
+    \begin{itemize}[leftmargin=0.15in, label=\textbullet, itemsep=0.5pt, topsep=1pt]
+      \item Designed and built a full-stack MERN fitness platform with \textbf{10 Mongoose models} (User, Workout, WorkoutLog, MealLog, Challenge, League, and more) and \textbf{200+ REST API endpoints} secured with \textbf{Helmet}, \textbf{CORS}, and \textbf{express-rate-limit} middleware.
+      \item Implemented \textbf{JWT authentication} with HTTP-only refresh tokens, \textbf{bcrypt} password hashing, and a \textbf{Nodemailer} password-reset flow; integrated \textbf{Cloudinary} and \textbf{Multer} for scalable media uploads.
+      \item Built a \textbf{Socket.IO} real-time layer across 4 namespaces with JWT-authenticated middleware, enabling live leaderboard pushes at \textbf{sub-80ms latency} and synced community feeds.
+      \item Integrated a \textbf{MediaPipe} pose-analysis engine for real-time AI-powered workout form feedback.
+
+  \item \textbf{GRAPHY -- Interactive Graph Algorithm Visualizer} \hfill \href{https://github.com/sSamay4927/GRAPHY}{GitHub} \\
+    \textit{Tech Stack: React 18, Node.js, Express.js, D3.js, HTML Canvas, GSAP, Framer Motion}
+    \begin{itemize}[leftmargin=0.15in, label=\textbullet, itemsep=0.5pt, topsep=1pt]
+      \item Implemented \textbf{9 graph algorithms} (BFS, DFS, Dijkstra, Bellman-Ford, Floyd-Warshall, Prim, Kruskal, Cycle Detection, Connected Components) using a \textbf{custom Min-Heap Priority Queue}, achieving \textbf{O((V+E) log V)} complexity with 120+ recorded execution traces.
+      \item Architected a high-performance \textbf{Canvas renderer} with a decoupled \textbf{requestAnimationFrame} loop and \textbf{D3 force simulation}, delivering \textbf{sub-16ms frame updates} synchronized with GSAP and Framer Motion animations.
+    \end{itemize}
+
+  \item \textbf{CryptoSentinel -- Crypto Intelligence \& Backtesting Platform} \hfill \href{https://github.com/sSamay4927/MarketPulse-}{GitHub} \\
+    \textit{Tech Stack: React 19, Node.js, Express.js, PostgreSQL, Python, FinBERT, Recharts, node-cron}
+    \begin{itemize}[leftmargin=0.15in, label=\textbullet, itemsep=0.5pt, topsep=1pt]
+      \item Designed a \textbf{PostgreSQL} schema with \textbf{composite B-tree indexes} on \texttt{(symbol, time)} and \texttt{(time, headline)}, achieving \textbf{sub-200ms} query response times across \textbf{1,440+ Binance OHLCV} records.
+      \item Integrated a \textbf{FinBERT} (Hugging Face Transformers) NLP pipeline via a \textbf{Python subprocess} for financial sentiment scoring; fused sentiment signals with \textbf{PostgreSQL window-function-computed MA50} to power a rule-based trading strategy.
+      \item Automated an \textbf{ETL pipeline} via \textbf{node-cron} to ingest data from \textbf{Binance} and \textbf{Reddit} APIs daily, processing \textbf{125+ articles} per run into a centralized \texttt{sentiment\_logs} table.
+      \item Built a \textbf{backtesting engine} that joins price and sentiment data to simulate trades, reporting ROI, win rate, max drawdown, and final equity visualized with \textbf{Recharts} interactive charts.
+    \end{itemize}
+
+\end{itemize}
+%----------Achievements & Coursework---------
+\section{Achievements \& Coursework}
+\begin{itemize}[leftmargin=0.15in, itemsep=0.5pt, topsep=1pt]
+    \item \textbf{Codeforces:} \href{https://codeforces.com/profile/shadow_striker_9}{Specialist (Rating: 1550)} -- solved \textbf{550+ problems}; \textbf{LeetCode:} \href{https://leetcode.com/u/sSamay/}{Knight (Rating: 1858)} -- solved \textbf{240+ problems}.
+    \item \textbf{ICPC Online Prelims 2025:} Secured \textbf{Rank 738} (nationwide) as part of a \textbf{3-member team} in the ICPC Online Qualifier round.
+    \item \textbf{Coursework:} Data Structures \& Algorithms, Operating Systems, Database Management Systems, Computer Networks, Object-Oriented Programming, Software Engineering.
+\end{itemize}
+\end{document}
