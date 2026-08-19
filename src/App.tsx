@@ -47,7 +47,8 @@ export default function App() {
 
   const getFramePath = useCallback((index: number) => {
     const formattedStr = index.toString().padStart(4, '0');
-    return `/assets/frames/frame_${formattedStr}.jpg`;
+    // Added ?v=2 to bypass browser cache and force the new frames to load
+    return `/assets/frames/frame_${formattedStr}.jpg?v=2`;
   }, []);
 
   const { loadedProgress } = useScrollSequence({
@@ -340,7 +341,7 @@ export default function App() {
         {/* ===== CHAPTER 02: ARSENAL ===== */}
         <section
           id="arsenal"
-          className="min-h-screen flex items-center justify-center py-24 sm:py-32"
+          className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16"
         >
           <ArsenalSection />
         </section>
@@ -348,7 +349,7 @@ export default function App() {
         {/* ===== CHAPTER 03: VOYAGES ===== */}
         <section
           id="voyages"
-          className="min-h-screen flex items-center justify-center py-24 sm:py-32"
+          className="flex items-center justify-center py-12 sm:py-16"
         >
           <VoyagesSection />
         </section>
@@ -356,7 +357,7 @@ export default function App() {
         {/* ===== CHAPTER 04: LOGBOOK ===== */}
         <section
           id="logbook"
-          className="min-h-screen flex items-center justify-center py-24 sm:py-32"
+          className="flex items-center justify-center py-12 sm:py-16"
         >
           <LogbookSection />
         </section>
@@ -364,7 +365,7 @@ export default function App() {
         {/* ===== CHAPTER 05: DISPATCH ===== */}
         <section
           id="dispatch"
-          className="min-h-screen flex items-center justify-center py-24 sm:py-32"
+          className="flex items-center justify-center pt-12 pb-24 sm:pt-16 sm:pb-32"
         >
           <DispatchSection onOpenResume={() => setIsResumeOpen(true)} />
         </section>

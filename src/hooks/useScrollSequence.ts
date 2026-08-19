@@ -72,7 +72,15 @@ export function useScrollSequence({ canvasRef, frameCount, framePath }: UseScrol
     resizeCanvas(); // Initial sizing
 
     const onScroll = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      let maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      
+      // The user wants the animation to finish in 4 sections.
+      // We look for the 5th section ('dispatch') and end the sequence there.
+      const dispatchSection = document.getElementById('dispatch');
+      if (dispatchSection) {
+        maxScroll = dispatchSection.offsetTop;
+      }
+
       const progress = Math.min(Math.max(window.scrollY / (maxScroll || 1), 0), 1);
       // Frame index from 0 to frameCount - 1
       targetFrame = progress * (frameCount - 1);
